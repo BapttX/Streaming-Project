@@ -18,7 +18,7 @@ class StyleFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'libelle' => fake()->word(),
         ];
     }
 }

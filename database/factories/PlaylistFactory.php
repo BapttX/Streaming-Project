@@ -18,7 +18,8 @@ class PlaylistFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nomPlaylist' => fake()->words(2, true),
+            'user_id' => \App\Models\User::factory(),
         ];
     }
 }

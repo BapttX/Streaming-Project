@@ -18,7 +18,7 @@ class ArtisteFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nomArtiste' => fake()->name(),
         ];
     }
 }

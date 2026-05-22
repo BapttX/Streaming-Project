@@ -18,7 +18,7 @@ class AlbumFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nomAlbum' => fake()->catchPhrase(),
         ];
     }
 }

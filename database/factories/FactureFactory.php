@@ -18,7 +18,8 @@ class FactureFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'dateFacture' => fake()->dateTimeThisYear(),
+            'user_id' => \App\Models\User::factory(),
         ];
     }
 }

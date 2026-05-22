@@ -18,7 +18,9 @@ class MusiqueFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'nomMusique' => fake()->sentence(3),
+            'duree' => fake()->randomFloat(2, 1, 10),
+            'prix' => fake()->randomElement([0.00, 0.00, 0.99, 1.29]),
         ];
     }
 }
