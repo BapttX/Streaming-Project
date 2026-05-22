@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('artiste_musique', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::create('musique_style', function (Blueprint $table) {
+            $table->foreignId('musique_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('style_id')->constrained()->cascadeOnDelete();
+            $table->primary(['musique_id', 'style_id']);
         });
     }
 
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('artiste_musique');
+        Schema::dropIfExists('musique_style');
     }
 };

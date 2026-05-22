@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('musiques', function (Blueprint $table) {
             $table->id();
+            $table->string('nomMusique', 50);
+            $table->decimal('duree', 15, 2);
+            $table->decimal('prix', 15, 2)->default(0.00);
+            $table->foreignId('album_id')->nullable()->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
