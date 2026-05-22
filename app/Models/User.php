@@ -29,4 +29,22 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    
+    /**
+     * Un utilisateur peut posséder plusieurs playlists
+     * - Renvoie ces playlists
+     */
+    public function playlists()
+    {
+        return $this->hasMany(Playlist::class);
+    }
+
+    /**
+     * Un utilisateur peut avoir plusieurs factures d'achats
+     * - Renvoie ces factures
+     */
+    public function factures()
+    {
+        return $this->hasMany(Facture::class);
+    }
 }
