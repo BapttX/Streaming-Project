@@ -43,7 +43,7 @@ class UserController extends Controller
         ], 201);
     }
 
-    public function logout(){
+    public function logout(Request $request){
         $request->user()->currentAccessToken()->delete();
 
         return response()->json([
@@ -80,7 +80,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return response()->json($request->user());
     }
 
     /**
