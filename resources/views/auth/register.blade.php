@@ -44,7 +44,7 @@
 
             <div>
                 <label class="block text-sm font-bold mb-2 text-gray-300">Quelle est ton adresse e-mail ?</label>
-                <input type="email" id="email" required placeholder="nom@polytech.fr" class="spotify-input w-full p-3 rounded-sm">
+                <input type="email" id="email" required placeholder="test@example.com" class="spotify-input w-full p-3 rounded-sm">
             </div>
 
             <div>
@@ -75,6 +75,7 @@
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const errorDiv = document.getElementById('error-message');
+            const fullName = prenom + ' ' + nom;
 
             fetch('/api/register', {
                 method: 'POST',
@@ -82,11 +83,11 @@
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
-                body: JSON.stringify({ nom: nom, prenom: prenom, email: email, password: password })
+                body: JSON.stringify({ name: fullName, email: email, password: password })
             })
             .then(response => response.json().then(data => ({ status: response.status, body: data })))
             .then(res => {
-                if (res.status === 201) {
+                if (res.status === 200 || res.status === 201) { 
                     localStorage.setItem('api_token', res.body.token);
                     window.location.href = '/home';
                 } else {

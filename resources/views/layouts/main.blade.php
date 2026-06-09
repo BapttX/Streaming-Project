@@ -40,9 +40,9 @@
                 nav.innerHTML = `
                     <a href="/dashboard" class="flex items-center gap-2 hover:text-indigo-400 transition">
                         <div class="w-8 h-8 bg-indigo-600 rounded-full flex items-center justify-center text-xs font-bold">
-                            ${user.prenom[0]}${user.nom[0]}
+                            ${user.name[0]}
                         </div>
-                        <span class="hidden md:inline font-semibold">${user.prenom}</span>
+                        <span class="hidden md:inline font-semibold">${user.name}</span>
                     </a>
                     <button onclick="logout()" class="text-gray-400 hover:text-white text-sm">Déconnexion</button>
                 `;

@@ -32,7 +32,7 @@
         <form id="login-form" class="flex flex-col gap-5">
             <div>
                 <label class="block text-sm font-bold mb-2 text-gray-300">Adresse e-mail</label>
-                <input type="email" id="email" required placeholder="nom@polytech.fr" class="spotify-input w-full p-3.5 rounded-sm transition">
+                <input type="email" id="email" required placeholder="test@example.com" class="spotify-input w-full p-3.5 rounded-sm transition">
             </div>
 
             <div>
