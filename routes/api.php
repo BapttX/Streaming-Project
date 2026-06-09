@@ -6,6 +6,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MusiqueController;
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\ArtisteController;
+use App\Http\Controllers\PlaylistController;
+use App\Http\Controllers\FactureController;
 
 Route::middleware('auth:sanctum')->group(function() {
     Route::get('/user', [UserController::class, 'show']);
@@ -13,7 +15,7 @@ Route::middleware('auth:sanctum')->group(function() {
 
     Route::get('/playlists', [PlaylistController::class, 'index']);
     Route::post('/playlists', [PlaylistController::class, 'store']);
-    Route::post('playlists/{playlist}/musiques', [Playlist::class, 'addMusique']);
+    Route::post('playlists/{playlist}/musiques', [PlaylistController::class, 'addMusique']);
 
     Route::get('/factures', [FactureController::class, 'index']);
     Route::get('/factures/{id}', [FactureController::class, 'show']);
