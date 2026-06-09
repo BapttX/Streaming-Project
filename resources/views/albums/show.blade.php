@@ -22,11 +22,11 @@
         .then(res => res.json())
         .then(album => {
             document.getElementById('album-header').innerHTML = `
-                <img src="https://via.placeholder.com/300" class="w-64 h-64 shadow-2xl">
+                <img src="https://picsum.photos/seed/album${album.id}/300/300" class="w-64 h-64 shadow-2xl rounded-lg object-cover">
                 <div>
                     <span class="text-xs font-bold uppercase tracking-widest">Album</span>
-                    <h1 class="text-7xl font-black mb-4">${album.nomProjet}</h1>
-                    <a href="/artistes/${album.artiste.id}" class="text-xl font-bold hover:underline">${album.artiste.nom}</a>
+                    <h1 class="text-7xl font-black mb-4">${album.nomAlbum}</h1>
+                    <a href="/artistes/${album.artiste.id}" class="text-xl font-bold hover:underline">${album.artiste.nomArtiste}</a>
                 </div>
             `;
 
@@ -34,7 +34,7 @@
                 <tr class="hover:bg-white/10 group transition cursor-pointer" onclick="location.href='/musiques/${m.id}'">
                     <td class="p-4">${i + 1}</td>
                     <td class="p-4">
-                        <div class="text-white font-medium">${m.titre}</div>
+                        <div class="text-white font-medium">${m.nomMusique}</div>
                     </td>
                     <td class="p-4 text-right">3:45</td>
                 </tr>
