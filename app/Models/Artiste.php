@@ -23,6 +23,6 @@ class Artiste extends Model
      * - Renvoie ces musiques
      */
     public function musiques() {
-        return $this->belongsToMany(Musique::class);
+        return $this->belongsToMany(Musique::class, 'artiste_musique');
     }
 }

@@ -34,9 +34,10 @@ class AlbumController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Album $album)
+    public function show($id)
     {
-        //
+        $album = Album::with(['artiste', 'musiques'])->findOrFail($id);
+        return response()->json($album);
     }
 
     /**

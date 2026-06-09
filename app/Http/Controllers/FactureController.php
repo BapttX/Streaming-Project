@@ -10,9 +10,9 @@ class FactureController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        return response()->json($request->user()->factures);
     }
 
     /**
@@ -34,9 +34,10 @@ class FactureController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Facture $facture)
+    public function show(Request $request, $id)
     {
-        //
+        $facture = $request->user()->factures()->findOrFail($id);
+        return response()->json($facture);
     }
 
     /**

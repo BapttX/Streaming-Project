@@ -34,9 +34,10 @@ class ArtisteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Artiste $artiste)
+    public function show($id)
     {
-        //
+        $artiste = Artiste::with(['albums', 'musiques'])->findOrFail($id);
+        return response()->json($artiste);
     }
 
     /**

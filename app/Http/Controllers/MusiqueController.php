@@ -34,9 +34,10 @@ class MusiqueController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Musique $musique)
+    public function show($id)
     {
-        //
+        $musique = Musique::with(['album', 'styles', 'artistes'])->findOrFail($id);
+        return response()->json($musique);
     }
 
     /**
