@@ -12,7 +12,8 @@ class MusiqueController extends Controller
      */
     public function index()
     {
-        return Musique::with(['artistes', 'styles'])->get();
+        $musiques = Musique::with(['artistes', 'styles'])->get();
+        return response()->json($musiques);
     }
 
     /**
