@@ -12,7 +12,8 @@ class AlbumController extends Controller
      */
     public function index()
     {
-        return Album::with(['artiste', 'musiques'])->get();
+        $albums = Album::with(['artiste', 'musiques'])->get();
+        return response()->json($albums);
     }
 
     /**
