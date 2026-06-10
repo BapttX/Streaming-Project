@@ -128,7 +128,7 @@
                     }
 
                     container.innerHTML = playlists.map(p => `
-                        <div class="flex items-center justify-between p-3.5 list-item-dark rounded-xl group cursor-pointer">
+                        <div onclick="location.href='/playlists/${p.id}'" class="flex items-center justify-between p-3.5 list-item-dark rounded-xl group cursor-pointer">
                             <div>
                                 <div class="font-bold text-white group-hover:text-indigo-400 transition mb-0.5">${p.nomPlaylist}</div>
                                 <div class="text-xs text-zinc-400 font-medium"><i class="fa-solid fa-compact-disc text-zinc-500 mr-1"></i>${p.musiques ? p.musiques.length : 0} titre(s)</div>

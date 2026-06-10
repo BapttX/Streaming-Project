@@ -34,6 +34,10 @@ Route::get('/artistes/{id}', function () {
     return view('artists.show');
 });
 
+Route::get('/playlists/{id}', function () {
+    return view('playlists.show');
+});
+
 Route::get('/factures/{id}', function () {
     return view('invoices.show');
 });
