@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $users = User::factory(10)->create();
-        $styles = collect(['Rap', 'Drill', 'OST Jeu Vidéo', 'Électro', 'Pop', 'Classique'])->map(function ($nom) {
+        $styles = collect(['Rap', 'Drill', 'OST Jeu Vidéo', 'OST Anime', 'Électro', 'Pop', 'Classique'])->map(function ($nom) {
             return Style::create(['libelle' => $nom]);
         });
         $artistes = Artiste::factory(20)->create();
