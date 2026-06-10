@@ -51,7 +51,13 @@ class PlaylistController extends Controller
      */
     public function show(Playlist $playlist)
     {
-        //
+        // On vérifie si c'est le propriétaire de la playlist
+        if($playlist->user_id !== $request->user()->id)
+        {
+            return response()->json(['message' => 'Accès refusé'], 403);
+        }
+
+        return response()->json($playlist->load('musiques'));
     }
 
     /**
