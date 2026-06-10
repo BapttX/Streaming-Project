@@ -23,7 +23,7 @@ class StorePlaylistRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nom' => 'required|string|max:255'
+            'nomPlaylist' => 'required|string|max:255'
         ];
     }
 }
