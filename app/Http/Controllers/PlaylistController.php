@@ -49,7 +49,7 @@ class PlaylistController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Playlist $playlist)
+    public function show(Playlist $playlist, Request $request)
     {
         // On vérifie si c'est le propriétaire de la playlist
         if($playlist->user_id !== $request->user()->id)
