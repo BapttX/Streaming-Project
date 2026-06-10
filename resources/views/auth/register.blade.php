@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription - 10H</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <style>
         body { background-color: #121212; color: white; }
         .spotify-input { 

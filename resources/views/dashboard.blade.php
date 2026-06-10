@@ -111,9 +111,15 @@
 
         function loadPlaylists() {
             fetch('/api/playlists', fetchOptions)
-                .then(res => res.json())
+                .then(res => {
+                    if (!res.ok) throw new Error("Erreur serveur API Playlists");
+                    return res.json();
+                })
                 .then(playlists => {
                     const container = document.getElementById('playlists-container');
+                    
+                    if (!Array.isArray(playlists)) throw new Error("Format invalide reçu");
+
                     document.getElementById('playlists-count').textContent = playlists.length;
                     
                     if (playlists.length === 0) {
@@ -132,6 +138,11 @@
                             </button>
                         </div>
                     `).join('');
+                })
+                .catch(err => {
+                    console.error("Bug Playlists:", err);
+                    document.getElementById('playlists-container').innerHTML = '<p class="text-red-400 italic text-sm text-center py-4">Impossible de charger les playlists.</p>';
+                    document.getElementById('playlists-count').textContent = "!";
                 });
         }
 
@@ -144,20 +155,27 @@
                 headers: fetchOptions.headers,
                 body: JSON.stringify({ nom: nomInput.value })
             })
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) throw new Error("Erreur création playlist");
+                return res.json();
+            })
             .then(() => {
                 nomInput.value = '';
                 loadPlaylists(); 
-            });
+            })
+            .catch(err => console.error("Bug Création:", err));
         });
 
         function loadFactures() {
             fetch('/api/factures', fetchOptions)
-                .then(res => res.json())
+                .then(res => {
+                    if (!res.ok) throw new Error("Erreur serveur API Factures");
+                    return res.json();
+                })
                 .then(factures => {
                     const container = document.getElementById('factures-container');
                     
-                    if (!factures || factures.length === 0) {
+                    if (!Array.isArray(factures) || factures.length === 0) {
                         container.innerHTML = '<p class="text-zinc-500 italic text-sm text-center py-4">Aucune facture disponible.</p>';
                         return;
                     }
@@ -178,6 +196,10 @@
                             </div>
                         </div>
                     `}).join('');
+                })
+                .catch(err => {
+                    console.error("Bug Factures:", err);
+                    document.getElementById('factures-container').innerHTML = '<p class="text-red-400 italic text-sm text-center py-4">Impossible de charger les factures.</p>';
                 });
         }
     }
