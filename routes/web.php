@@ -33,3 +33,7 @@ Route::get('/albums/{id}', function () {
 Route::get('/artistes/{id}', function () {
     return view('artists.show');
 });
+
+Route::get('/factures/{id}', function () {
+    return view('invoices.show');
+});
