@@ -26,9 +26,25 @@ class FactureController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreFactureRequest $request)
     {
-        //
+        $musique = Musique::findOrFail($request->musique_id);
+        $user = $request->user();
+
+        // Si déjà acheté
+        if($user->factures()->whereHas('musiques', function($query) use ($musique) {
+            $query->where('musiques.id', $musique->id);
+        })->exists()){
+            return response()->json(['message' => 'Tu possèdes déjà ce titre.'], 400);
+        }
+
+        $facture = $user->factures()->create([
+            'montant_total' => $musique->prix
+        ]);
+        $facture->musiques()->attach($musique->id, [
+            'prix_unitaire' => $musique->prix
+        ]);
+        return response()->json(['message' => 'Achat réussi', 'facture' => $facture], 201);
     }
 
     /**

@@ -18,6 +18,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('playlists/{playlist}/musiques', [PlaylistController::class, 'addMusique']);
 
     Route::get('/factures', [FactureController::class, 'index']);
+    Route::post('/factures', [FactureController::class, 'store']);
     Route::get('/factures/{id}', [FactureController::class, 'show']);
 });
 

@@ -10,6 +10,8 @@ class Facture extends Model
     /** @use HasFactory<\Database\Factories\FactureFactory> */
     use HasFactory;
 
+    protected $fillable = ['user_id', 'montant_total'];
+
     /**
      * La facture appartient à un utilisateur
      * - Renvoie l'utilisateur
@@ -25,6 +27,6 @@ class Facture extends Model
      */
     public function musiques()
     {
-        return $this->belongsToMany(Musique::class);
+        return $this->belongsToMany(Musique::class)->withPivot('prix_unitaire');
     }
 }

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('facture_musique', function (Blueprint $table) {
             $table->foreignId('facture_id')->constrained()->cascadeOnDelete();
             $table->foreignId('musique_id')->constrained()->cascadeOnDelete();
+            $table->decimal('prix_unitaire', 8, 2)->default(0.00);
             $table->primary(['facture_id', 'musique_id']);
         });
     }
