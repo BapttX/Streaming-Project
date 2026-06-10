@@ -74,7 +74,7 @@
             
             document.getElementById('facture-client').textContent = f.user ? (f.user.name || `${f.user.prenom} ${f.user.nom}`) : "Client 10H";
             
-            document.getElementById('facture-total').textContent = parseFloat(f.montant_total).toFixed(2) + ' €';
+            document.getElementById('facture-total').textContent = parseFloat(f.montant).toFixed(2) + ' €';
 
             if (f.musiques && f.musiques.length > 0) {
                 document.getElementById('facture-articles').innerHTML = f.musiques.map(m => {

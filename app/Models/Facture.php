@@ -12,7 +12,7 @@ class Facture extends Model
     /** @use HasFactory<\Database\Factories\FactureFactory> */
     use HasFactory;
 
-    protected $fillable = ['user_id', 'montant_total'];
+    protected $fillable = ['user_id', 'montant', 'dateFacture'];
 
     /**
      * La facture appartient à un utilisateur

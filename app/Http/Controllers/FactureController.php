@@ -41,7 +41,8 @@ class FactureController extends Controller
         }
 
         $facture = $user->factures()->create([
-            'montant_total' => $musique->prix
+            'montant' => $musique->prix,
+            'dateFacture' => now()
         ]);
         $facture->musiques()->attach($musique->id, [
             'prix_unitaire' => $musique->prix

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('factures', function (Blueprint $table) {
             $table->id();
+            $table->decimal('montant', 8, 2)->default(0.00);
             $table->dateTime('dateFacture');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
