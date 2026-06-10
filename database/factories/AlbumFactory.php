@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Album;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends Factory<Album>
@@ -18,7 +19,7 @@ class AlbumFactory extends Factory
     public function definition(): array
     {
         return [
-            'nomAlbum' => fake()->catchPhrase(),
+            'nomAlbum' => Str::limit(fake()->catchPhrase(), 50, ''),
         ];
     }
 }
