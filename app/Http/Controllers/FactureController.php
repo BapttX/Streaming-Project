@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Facture;
+use App\Models\Musique;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreFactureRequest;
 

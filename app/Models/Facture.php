@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Controllers\Musique;
+use App\Models\User;
+use App\Models\Musique;
 
 class Facture extends Model
 {
