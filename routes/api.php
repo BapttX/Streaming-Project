@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('/factures/{id}', [FactureController::class, 'show']);
 });
 
-Route::post('/login', [UserController::class, 'login']);
+Route::post('/login', [UserController::class, 'login'])->name('login');
 
 Route::post('/register', [UserController::class, 'register']);
 
