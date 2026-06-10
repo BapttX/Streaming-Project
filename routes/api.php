@@ -15,6 +15,7 @@ Route::middleware('auth:sanctum')->group(function() {
 
     Route::get('/playlists', [PlaylistController::class, 'index']);
     Route::post('/playlists', [PlaylistController::class, 'store']);
+    Route::get('/playlists/{playlist}', [PlaylistController::class, 'show']);
     Route::post('playlists/{playlist}/musiques', [PlaylistController::class, 'addMusique']);
 
     Route::get('/factures', [FactureController::class, 'index']);
